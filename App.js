@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { Navigation } from './app/navigation/login';
-
-import { NavigationContainer } from '@react-navigation/native';
-import { initialLoginState, loginReducer } from './app/reducers/loginreducer';
-import { actions } from './app/actions/actions';
 import AsyncStorage from '@react-native-community/async-storage';
 import { AuthContext } from './app/navigation/contex';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { Navigation } from './app/navigation/login';
+import { initialLoginState, loginReducer } from './app/reducers/loginreducer';
+import { actions } from './app/actions/actions';
 
 const App = () => {
   const [state, dispatch] = React.useReducer(
@@ -15,7 +15,6 @@ const App = () => {
   );
 
   const authContext = React.useMemo(() => actions(dispatch), []);
-
   useEffect(() => {
     setTimeout(async () => {
       let userToken;
@@ -37,7 +36,6 @@ const App = () => {
       </View>
     );
   }
-
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>

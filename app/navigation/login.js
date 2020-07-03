@@ -7,8 +7,6 @@ import { WelcomeScreen } from '../screens/welcome-screen';
 const Stack = createStackNavigator();
 
 export const Navigation = ({ state }) => {
-  // console.log('navigation screen', loginState);
-  // console.log('navigation screen', userToken);
   return (
     <Stack.Navigator headerMode="none">
       {state.userToken != null ? (
